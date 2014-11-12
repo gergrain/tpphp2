@@ -6,8 +6,8 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
 	$villes= $vilManager->getAllVilles();
 ?>
 <h1>Ajouter un Parcours </h1>
-<form method="post" class="form-horizontal" action=#>
-		Ville 1 :<select name="vil_num1" > 
+<form method="post" class="form-inline" action=#>
+		<label>Départ :&nbsp</label><select class="form-control" name="vil_num1" > 
 			<?php
 			foreach ($villes as $ville){  
 
@@ -16,7 +16,7 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
  ?>
 		</select>
 		
-		Ville 2 :<select name="vil_num2" > 
+		<label>Arrivée :&nbsp</label><select class="form-control" name="vil_num2" > 
 			<?php
 			foreach ($villes as $ville){  
 
@@ -24,7 +24,9 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
 	 		}
  ?>
 		</select>
-			Nombre de kilomètre(s) <input type="text" name="par_km"><br>
+			<label>Nombre de kilomètre(s)&nbsp </label>
+			 <input type="text" name="par_km" class="form-control"><br>
+			 <br>
 			<input type="submit" class="btn btn-primary" name="valider" value="valider">
 		</form>
 

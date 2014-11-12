@@ -1701,7 +1701,7 @@ output {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 20px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -2010,7 +2010,7 @@ select[multiple].input-lg {
           user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 .btn:focus,
 .btn:active:focus,
@@ -4364,8 +4364,7 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron {
-  padding: 10px;
-  margin-bottom: 10px;
+
   color: inherit;
   background-color: #333;
 }
@@ -5785,9 +5784,9 @@ body>#footer-container{
   text-align: center;
   background: #222;
   color: #fff;
-  min-height: 80px;
-  bottom: 0px;   
-  top: 60px;
+  min-height: 40px;
+  bottom: 0; 
+  padding-bottom: 1px;  
 }
 #corp{
   width: 100%;
@@ -5849,4 +5848,7 @@ left: -100px;
 
 padding: 17px;
 
+}
+.drt{
+  text-align: right;
 }

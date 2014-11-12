@@ -42,5 +42,17 @@ class ProposeManager{
 
 		return $listeVilles;		
 	}
+	public function getTrajet($par_num,$sens,$datedeb,$datefin,$heure){
+		$listTrajet = array();
+		$sql="select * from propose where 
+		par_num=$par_num and pro_sens=$sens 
+		and pro_time>=\"$heure:00\" and pro_date between \"$datedeb\" and \"$datefin\"";
+		$requete = $this->db->prepare($sql);
+		$requete->execute();
+		while($propose=$requete->fetch(PDO::FETCH_ASSOC))
+			$listTrajet[] = new Propose($propose);
+		$requete->closeCursor();
+		return $listTrajet;
+	}
 }
 ?>

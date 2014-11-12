@@ -4,9 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
 <head>
-
+<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
 <?php
 		$title = "Bienvenue sur le site de covoiturage de l'IUT.";?>
 		<title>
@@ -19,7 +19,7 @@
 
 </head>
 <body>
-	<header class="jumbotron" style=" margin-bottom: 0px; ">
+	<header class="jumbotron">
 		<div class="container">
 			<div class="row">
 	            <div class="col-sm-5 col-sm-push-2">

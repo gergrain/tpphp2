@@ -42,13 +42,6 @@ class PersonneManager{
 		$res = $requete->fetch(PDO::FETCH_ASSOC);
 		return $res['nombre'];
 	}
-	public function getNumPersonne($per_mail,$per_tel){
-		$sql='select per_num from personne where per_tel=\''.$per_tel.'\' and per_mail=\''.$per_mail.'\'';
-		$requete = $this->db->prepare($sql);
-		$requete->execute();
-		$res = $requete->fetch(PDO::FETCH_ASSOC);
-		return $res['per_num'];
-	}
 	public function getPersonneByLogin($per_login){
 		$sql='Select * from personne where per_login =\''.$per_login.'\'';
 		$requete = $this->db->prepare($sql);
@@ -56,6 +49,10 @@ class PersonneManager{
 		$res = $requete->fetch(PDO::FETCH_ASSOC);
 
 		return $res;
+	}
+	public function getLastNumPersonne(){
+	
+		return $this->db->lastInsertId('per_num');
 	}
 
 }

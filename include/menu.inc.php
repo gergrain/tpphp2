@@ -42,15 +42,15 @@
 				<?php
 				$pdo = new Mypdo();
 						if(empty($_SESSION['connexion'])){
-							if(empty($_POST['per_login'])){
+							if(empty($_POST['per_log'])&&empty($_POST['resultat'])&&empty($_POST['per_passwd'])){
 						?>	
 		          <li class="dropdown">
 		            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Connexion</a>
 		            <div class="dropdown-menu connect">
 		              <form class="form" method='post'  action=# > 
 		              	<caption>Pour vous connecter</caption>
-		                <input name="per_login" class="form-control" type="text" placeholder="Identifiant" required=required> 
-		                <input name="per_pwd" class="form-control" type="password" placeholder="Mot de passe" required=required><br>
+		                <input name="per_log" class="form-control" type="text" placeholder="Identifiant" required=required> 
+		                <input name="per_passwd" class="form-control" type="password" placeholder="Mot de passe" required=required><br>
 		                <label>
 		                	<?php 	$_SESSION['img1']=rand(1,9);
 									$_SESSION['img2']=rand(1,9);?>
@@ -62,24 +62,22 @@
 		              </form>
 						              <?php
 							}else{
-								if(!empty($_POST['resultat'])){
-									if($_SESSION['img1']+$_SESSION['img2']==$_POST['resultat']){
-										$persManager= new PersonneManager($pdo);
-										$personne = $persManager->getPersonneByLogin($_POST['per_login']);
-										$salt="48@!alsd";
-										if(sha1(sha1($_POST['per_pwd']).$salt)==$personne['per_pwd']){
-											header('Location: index.php?page=11');
-											$_SESSION['connexion']=$_POST['per_login'];
-											?>
-											<li>
-												<a>Utilisateur : <?php  echo $_SESSION['connexion'] ?></a>
-											</li>
-											<li><a href="index.php?page=12" >Déconnexion</a></li>
-										<?php
-
-										}else{
-											echo 'Erreur d\'auhtentification.<br> Cliquez <a href="index.php?page=11">ici</a> pour revenir ';
-										}
+								if($_SESSION['img1']+$_SESSION['img2']==$_POST['resultat']){
+									$persManager= new PersonneManager($pdo);
+									$personne = $persManager->getPersonneByLogin($_POST['per_log']);
+									$salt="48@!alsd";
+									if(sha1(sha1($_POST['per_passwd']).$salt)==$personne['per_pwd']){
+										
+										$_SESSION['connexion']=$_POST['per_log'];
+										?>
+										<li>
+											<a>Utilisateur : <?php  echo $_SESSION['connexion'] ?></a>
+										</li>
+										<li><a href="index.php?page=12" >Déconnexion</a></li>
+									<?php
+									header('Location: index.php?page=11');
+									}else{
+										echo 'Erreur d\'auhtentification.<br> Cliquez <a href="index.php?page=11">ici</a> pour revenir ';
 									}
 								}
 							}

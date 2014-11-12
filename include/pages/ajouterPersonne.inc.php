@@ -12,30 +12,47 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 ?>
 <h1>Ajouter une personne</h1>
 <form method="post" class="form-inline" action=#>
-		<div>
-			<label>Nom :</label>
-			<input type="text" name="per_nom" class="form-control" required=required>
-			<label>Prenom :</label>
-			<input type="text" name="per_prenom" class="form-control" required=required>
+		<div class="col-sm-10 col-sm-push-1">
+			<div class="drt col-sm-5">
+				<label>Nom :</label>
+				<input type="text" name="per_nom" class="form-control" required=required/>
+			</div>
+			<div class="drt col-sm-5">
+				<label>Prenom :</label>
+				<input type="text" name="per_prenom" class="form-control" required=required/>
+			</div>	
 		</div>
-		<div>
-			<label>Téléphone : </label>
-			<input type="text" name="per_tel" pattern="(0[0-9]{9})" class="form-control" required=required> 
-			<label>Mail : </label>
-			<input type="email" name="per_mail" class="form-control" required=required>
+		<div class="col-sm-10 col-sm-push-1">
+			<div class="col-sm-5 drt">
+				<label>Téléphone : </label>
+				<input type="tel" name="per_tel" pattern="(0[0-9]{9})" class="form-control" required=required/> 
+			</div>
+			<div class="col-sm-5 drt ">
+				<label>Mail : </label>
+				<input type="email" name="per_mail" class="form-control" required=required/>
+			</div>
 		</div>
-		<div>
-			<label>Login : </label>
-			<input type="text" name="per_login" class="form-control" required=required> 
-			<label>Mot de passe : </label>
-			<input type="password" name="per_pwd" class="form-control" required=required>
+		<div class="col-sm-10 col-sm-push-1">
+			<div class="col-sm-5 drt">
+				<label>Login : </label>
+				<input type="text" name="per_login" class="form-control" required=required/> 
+			</div>
+			<div class="col-sm-5 drt ">
+				<label>Mot de passe : </label>
+				<input type="password" name="per_pwd" class="form-control" required=required/>
+			</div>
 		</div>
-		<label>Catégorie : </label>
-		<input type="radio" name="categorie" value="etudiant" required=required>Etudiant
-					<input type="radio" name="categorie" value="personnel" required=required>Personnel
+		<divclass="col-sm-10"> </div>
+		<div class="col-sm-10 col-sm-push-1">
+			<label>Catégorie : </label>
+			<input type="radio" name="categorie" value="etudiant" required=required>Etudiant
+			<input type="radio" name="categorie" value="personnel" required=required>Personnel
+		</div>
 		<br>
-		<input type="submit" name="Valider" class="btn btn-primary" value="Valider">
-		</form>
+		<div class="col-sm-10 col-sm-push-1">
+			<input type="submit" name="Valider" class="btn btn-primary" value="Valider">
+		</div>
+	</form>
 
 
 <?php
@@ -100,10 +117,10 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 	<h2>Ajouter un salarié</h2>
 	<form method="post" action=# class="form-inline">
 			<label>Téléphone professionelle : &nbsp</label>
-			<input type="text" class="form-control align-center" name="sal_telprof" required=required>
+			<input type="text" class="form-control" name="sal_telprof" required=required>
 			<br>
 			
-			<label>Fonction :&nbsp</label><select class="form-control align-center" name="fon_num" > 
+			<label>Fonction :&nbsp</label><select class="form-control" name="fon_num" > 
 				<?php
 				foreach ($fonctions as $fonction){  
 					?>
@@ -124,7 +141,8 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 	$perManager = new PersonneManager($pdo);
 	$personne = new Personne($_SESSION);
 	$retour = $perManager->add($personne);
-	$per_num= $perManager->getNumPersonne($_SESSION['per_mail'],$_SESSION['per_tel']);
+	$per_num=$perManager->getLastNumPersonne();
+
 	if($_SESSION['categorie']=='etudiant'){
 			$etuManager=new EtudiantManager($pdo);
 			$etudiant = new Etudiant(array('per_num'=>$per_num,'div_num'=>$_POST['div_num'],'dep_num'=>$_POST['dep_num']));
