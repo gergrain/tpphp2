@@ -22,7 +22,7 @@ $listPersonne= $perManager->getAllPersonne();
 	foreach ($listPersonne as $personne){  ?>
 
 		<tr>
-			<td><a href="index.php?page=13&per_num=<?php echo $personne -> getPerNum(); ?>"><?php echo $personne -> getPerNum(); ?></a></td>
+			<td><a href="index.php?page=13&amp;per_num=<?php echo $personne -> getPerNum(); ?>"><?php echo $personne -> getPerNum(); ?></a></td>
 			<td><?php echo $personne->getPerNom(); ?></td>
 			<td><?php echo $personne->getPerPrenom(); ?></td>
 		</tr>

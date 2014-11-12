@@ -54,5 +54,14 @@ class PersonneManager{
 	
 		return $this->db->lastInsertId('per_num');
 	}
+	public function suprPersonne($per_num){
+		$sql='delete from propose where per_num='.$per_num.';'.
+		'delete from salarie where per_num='.$per_num.';'.
+		'delete from etudiant where per_num='.$per_num.';'.
+		'delete from personne where per_num='.$per_num;
+		$requete = $this->db->prepare($sql);
+		$res=$requete->execute();
+		return $res;
+	}
 
 }

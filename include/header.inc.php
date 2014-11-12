@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html >
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
@@ -19,16 +19,18 @@
 
 </head>
 <body>
-	<header class="jumbotron">
-		<div class="container">
-			<div class="row">
-	            <div class="col-sm-5 col-sm-push-2">
-	            	<a href="index.php?page=0" class="col-xs-12 col-sm-4 col-sm-pull-4">
-	                	<img src="image/logo.png" alt="Logo covoiturage IUT" title="Logo covoiturage IUT Limousin" />
-	                </a>	
-	            </div>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<div class="row">
+		            <div class="col-sm-5 col-sm-push-2">
+		            	<a href="index.php?page=0" class="col-xs-12 col-sm-4 col-sm-pull-4">
+		                	<img src="image/logo.png" alt="Logo covoiturage IUT" title="Logo covoiturage IUT Limousin" />
+		                </a>	
+		            </div>
+		        </div>
+	           
+	            
 	        </div>
-           
-            
-        </div>
+	    </div>
 	</header>

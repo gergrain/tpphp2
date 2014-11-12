@@ -2,10 +2,9 @@
 <?php
 if(empty($_POST['vil_nom'])){
 ?>
-<h1>Ajouter une ville</h1>
 <form method='post' action=# class="form-inline">
-		<caption></caption>
-		<label class="form-label">Nom :  &nbsp</label><input type='texte' class="form-control" name='vil_nom' required=required/>
+		<h1><caption>Ajouter une ville</caption></h1>
+		<label class="form-label">Nom :  &amp</label><input type='texte' class="form-control" name='vil_nom' required=required/>
 		<input type='submit' class="btn btn-primary" />
 </form>
 <?php
