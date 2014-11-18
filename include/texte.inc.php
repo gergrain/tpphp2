@@ -89,6 +89,11 @@ case 13:
 	//inclure la page de détail personne
 	include_once('pages/detail.inc.php');
 	break;
+
+case 14:
+	//inclure la page de détail personne
+	include_once('pages/ModifierVille.inc.php');
+	break;
 default : 	include_once('pages/accueil.inc.php');
 }
 			echo "</div>";
