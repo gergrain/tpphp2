@@ -4,7 +4,7 @@ if(empty($_POST['vil_nom'])){
 ?>
 <form method='post' action=# class="form-inline">
 		<h1><caption>Ajouter une ville</caption></h1>
-		<label class="form-label">Nom :  &amp</label><input type='texte' class="form-control" name='vil_nom' required=required/>
+		<label class="form-label">Nom :  </label><input type='texte' class="form-control" name='vil_nom' required=required/>
 		<input type='submit' class="btn btn-primary" />
 </form>
 <?php

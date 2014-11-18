@@ -20,6 +20,7 @@ $listPersonne= $perManager->getAllPersonne();
 if(!empty($_GET['per_num'])){
 	$res=$perManager->suprPersonne($_GET['per_num']);
 	unset($_GET['per_num']);
+	header('Refresh:0 ; URL=index.php?page=4');
 }
 
 ?>
@@ -45,7 +46,7 @@ if(!empty($_GET['per_num'])){
 			<td><?php echo $personne -> getPerNum(); ?></td>
 			<td><?php echo $personne->getPerNom(); ?></td>
 			<td><?php echo $personne->getPerPrenom(); ?></td>
-			<td><a href="index.php?page=1&amp;per_num=<?php echo $personne -> getPerNum(); ?>"><img src="image/modifier.png"/></a></td>
+			<td><a href="index.php?page=3&amp;per_num=<?php echo $personne -> getPerNum(); ?>"><img src="image/modifier.png"/></a></td>
 			<td class="btnValider"><a href=#  data-toggle="modal" data-target=".supprimer">
 					<span class="glyphicon glyphicon-trash"></span>
 				</a>

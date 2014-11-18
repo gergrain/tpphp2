@@ -1,3 +1,8 @@
+<script type="text/javascript">
+$(document).ready(function() {
+
+}
+</script>
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 		<div class=" navbar-inner">
 			<div class="container">
@@ -43,23 +48,23 @@
 						if(empty($_SESSION['connexion'])){
 							if(empty($_POST['per_log'])&&empty($_POST['resultat'])&&empty($_POST['per_passwd'])){
 						?>	
-		          <li class="dropdown">
-		            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Connexion</a>
-		            <div class="dropdown-menu connect">
-		              <form class="form" method='post'  action=# > 
-		              	<caption>Pour vous connecter</caption>
-		                <input name="per_log" class="form-control" type="text" placeholder="Identifiant" required=required> 
-		                <input name="per_passwd" class="form-control" type="password" placeholder="Mot de passe" required=required><br>
-		                <label>
-		                	<?php 	$_SESSION['img1']=rand(1,9);
-									$_SESSION['img2']=rand(1,9);?>
-							<img src="image/nb/<?php	echo $_SESSION['img1']; ?>.jpg"> + 
-							<img src="image/nb/<?php	echo $_SESSION['img2']; ?>.jpg"> = 
-						</label>
-						<input type='texte' name='resultat' class="form-control" placeholder="Résultat" required=required/><br>
-		                <button type="submit" id="btnLogin" class="btn">Connexion</button>
-		              </form>
-						              <?php
+					<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Connexion</a>
+					<div class="dropdown-menu connect">
+						<form class="form" method='post'  action=# > 
+							<caption>Pour vous connecter</caption>
+							<input name="per_log" class="form-control" type="text" placeholder="Identifiant" required=required> 
+							<input name="per_passwd" class="form-control spacer" type="password" placeholder="Mot de passe" required=required><br>
+							<label>
+								<?php 	$_SESSION['img1']=rand(1,9);
+										$_SESSION['img2']=rand(1,9);?>
+								<img src="image/nb/<?php	echo $_SESSION['img1']; ?>.jpg"> + 
+								<img src="image/nb/<?php	echo $_SESSION['img2']; ?>.jpg"> = 
+							</label>
+							<input type='texte' name='resultat' class="form-control" placeholder="Résultat" required=required/><br>
+							<button type="submit" id="btnLogin" class="btn" data-target=".aut">Connexion</button>
+						</form>
+					<?php
 							}else{
 								if($_SESSION['img1']+$_SESSION['img2']==$_POST['resultat']){
 									$persManager= new PersonneManager($pdo);
@@ -68,15 +73,9 @@
 									if(sha1(sha1($_POST['per_passwd']).$salt)==$personne['per_pwd']){
 										
 										$_SESSION['connexion']=$_POST['per_log'];
-										?>
-										<li>
-											<a>Utilisateur : <?php  echo $_SESSION['connexion'] ?></a>
-										</li>
-										<li><a href="index.php?page=12" >Déconnexion</a></li>
-									<?php
-									header('Location: index.php?page=11');
+										header('Location: index.php?page=11');
 									}else{
-										echo 'Erreur d\'auhtentification.<br> Cliquez <a href="index.php?page=11">ici</a> pour revenir ';
+										header('Location: index.php?page=11');
 									}
 								}
 							}
@@ -94,24 +93,6 @@
 						}
 					?>
 		        </ul>
-
-				<!--<ul class="nav navbar-nav navbar-right">
-					
-					<?php
-						if(empty($_SESSION['connexion'])){
-						?>
-							<li><a href="index.php?page=11" class="btn btn-primary btn-large" > Connexion</a></li>
-						<?php
-						}else{
-								?>
-								<li><a>Utilisateur : <?php  echo $_SESSION['connexion'] ?></a> </li>
-								<li><a href="index.php?page=12" class="btn btn-primary btn-large"><b>Déconnexion</b></a></li>
-
-							<?php
-						}
-						?>
-					
-				</ul>-->
 			</div>
 		</div>
 	</nav>
