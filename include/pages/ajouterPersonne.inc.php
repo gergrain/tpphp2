@@ -146,7 +146,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 	?>
 		<br><img src="image/valid.png"> La personne a été ajoutée</img>
 	<?php
-		header('Refresh: 4; URL=#');
+		
 		}else{
 	?>
 		<br><img src="image/erreur.png"> Le personne n'a pas été ajoutée</img>

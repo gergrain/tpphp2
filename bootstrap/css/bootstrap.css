@@ -5852,6 +5852,10 @@ padding: 17px;
 .drt{
   text-align: right;
 }
+
+.gch{
+  text-align: left;
+}
 #centreImage{
   width:38%;
 }
@@ -5862,3 +5866,9 @@ padding: 17px;
   font-size: 11px;
   text-align: left;
 }
+
+label.drt{
+  text-align: right;
+  margin-right : 1%;
+}
+
