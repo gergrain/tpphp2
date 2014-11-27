@@ -39,17 +39,17 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 		<div class="col-sm-10 col-sm-push-1">
 			<div class="drt col-sm-5">
 				<label>Nom :</label>
-				<input type="text" equired="required" name="per_nom" class="form-control" required="required" />
+				<input type="text" equired="required" name="per_nom" class="form-control maj" required="required" />
 			</div>
 			<div class="drt col-sm-5">
 				<label>Prenom :</label>
-					<input type="text" name="per_prenom" class="form-control" required="required" />
+					<input type="text" name="per_prenom" class="form-control capit" required="required" />
 			</div>	
 		</div>
 		<div class="col-sm-10 col-sm-push-1 spacer">
 			<div class="col-sm-5 drt">
 				<label>Téléphone : </label>
-					<input type="tel" name="per_tel" pattern="(0[0-9]{9})" class="form-control" required="required" /> 
+					<input type="tel" name="per_tel" pattern="(0[0-9]{9})" class="form-control" required="required" maxlength="10"/> 
 			</div>
 			<div class="col-sm-5 drt ">
 				<label>Mail : </label>
@@ -59,7 +59,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 		<div class="col-sm-10 col-sm-push-1 spacer">
 			<div class="col-sm-5 drt">
 				<label>Login : </label>
-					<input type="text" name="per_login" class="form-control" required="required" /> 
+					<input type="text" name="per_login" class="form-control" required="required"  /> 
 			</div>
 			<div class="col-sm-5 drt ">
 
