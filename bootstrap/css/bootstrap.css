@@ -5786,12 +5786,12 @@ body>#footer-container{
   color: #fff;
   min-height: 40px;
   bottom: 0; 
-  padding-bottom: 1px;  
+  padding-bottom: 1%;  
 }
 #corp{
   width: 100%;
   text-align: center;
-  min-height:400px;
+  min-height:445px;
 }
 /*bootstrap combined*/
 

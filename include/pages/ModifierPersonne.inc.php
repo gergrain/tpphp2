@@ -88,7 +88,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 		</div>
 		<div id="etu" >
 			<div class="col-sm-7 drt spacer">
-				<label>Annee : &nbsp</label><select class="form-control" name="div_num" > 
+				<label>Annee : &nbsp;</label><select class="form-control" name="div_num" > 
 					<?php
 					foreach ($divisions as $division){ ?> 
 
@@ -96,14 +96,14 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 							<?php if($division->getDivNum()==$etuManager->getEtudiantByNum($_GET['per_num'])['div_num']){
 								echo "selected=selected"; } ?>>
 							<?php echo $division->getDivnom() ?>
-						</option>;
+						</option>
 			 		<?php }
 		 ?>
 				</select>
 			</div>
 			<br>
 			<div class="col-sm-7 drt spacer">
-				<label>Département :&nbsp</label><select  class="form-control" name="dep_num" > 
+				<label>Département :&nbsp;</label><select  class="form-control" name="dep_num" > 
 					<?php
 					foreach ($departements as $departement){  
 					?>
@@ -111,7 +111,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 							<?php if($departement->getDepNum()==$etuManager->getEtudiantByNum($_GET['per_num'])['dep_num']){
 								echo "selected=selected"; } ?>>
 							<?php echo $departement->getDepNom() ?>
-						</option>;
+						</option>
 			 		<?php }
 		 ?>
 		 		</select>
@@ -119,11 +119,11 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 	 	</div>
 	 	<div id="perso">
 	 		<div class="col-sm-7 drt spacer">
-		 		<label>Téléphone professionelle : &nbsp</label>
+		 		<label>Téléphone professionelle : &nbsp;</label>
 				<input type="text" class="form-control" value="<?php echo $salManager->getSalarieByNum($_GET['per_num'])['sal_telprof']; ?>" name="sal_telprof" >
 			</div>
 			<div class="col-sm-7 drt spacer">
-				<label>Fonction :&nbsp</label><select class="form-control" name="fon_num" > 
+				<label>Fonction :&nbsp;</label><select class="form-control" name="fon_num" > 
 					<?php
 					foreach ($fonctions as $fonction){  
 						?>
@@ -132,7 +132,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 							<?php if($fonction->getFonNum()==$salManager->getSalarieByNum($_GET['per_num'])['fon_num']){
 								echo "selected=selected"; } ?>>
 							<?php echo $fonction->getFonLibelle() ?>
-						</option>;
+						</option>
 			 	<?php	}
 		 ?>
 		 		</select>

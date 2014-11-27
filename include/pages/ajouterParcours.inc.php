@@ -7,7 +7,7 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
 ?>
 <h1>Ajouter un Parcours </h1>
 <form method="post" class="form-inline" action=#>
-		<label>Départ :&nbsp</label><select class="form-control" name="vil_num1" > 
+		<label>Départ :&nbsp;</label><select class="form-control" name="vil_num1" > 
 			<?php
 			foreach ($villes as $ville){  
 
@@ -16,7 +16,7 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
  ?>
 		</select>
 		
-		<label>Arrivée :&nbsp</label><select class="form-control" name="vil_num2" > 
+		<label>Arrivée :&nbsp;</label><select class="form-control" name="vil_num2" > 
 			<?php
 			foreach ($villes as $ville){  
 
@@ -24,7 +24,7 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
 	 		}
  ?>
 		</select>
-			<label>Nombre de kilomètre(s)&nbsp </label>
+			<label>Nombre de kilomètre(s)&nbsp; </label>
 			 <input type="text" name="par_km" class="form-control"><br>
 			 <br>
 			<input type="submit" class="btn btn-primary" name="valider" value="valider">
@@ -48,20 +48,19 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
 					$retour = $parcManager->add($parcours);
 					if($retour !=0){
 				?>
-					<img src="image/valid.png"> Le Parcours a été ajoutée</img>
-				<?php
+					<img alt="Valide" src="image/valid.png" /> Le Parcours a été ajoutée				<?php
 					}else{
 				?>
-					<img src="image/erreur.png"> Le Parcours n'a pas été ajoutée</img>
+					<img alt="Erreur" src="image/erreur.png" /> Le Parcours n'a pas été ajoutée
 				<?php
 					}
 				}else{
 				?>
-					<img src="image/erreur.png"> Le Parcours est déjà référencé</img>
+					<img alt="Erreur" src="image/erreur.png" /> Le Parcours est déjà référencé
 		<?php	}
 			}else{
 ?>
-			<img src="image/erreur.png"> Le kilométrage ne peut pas être égal à 0 ou ne rien contenir</img>
+			<img alt="Erreur" src="image/erreur.png" /> Le kilométrage ne peut pas être égal à 0 ou ne rien contenir
 <?php
 			}
 		}

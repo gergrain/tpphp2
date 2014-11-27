@@ -9,7 +9,6 @@ $villes= $vilManager->getAllVilles();
 	<caption>
 		<div >
 			<h2>Liste des villes</h2>
-			<a href="index.php?page=14">Gérer</a>
 		</div>
 		<p>Actuellement <?php echo $vilManager->getNbrVille(); ?> villes sont enregistrées</p>
 	</caption>

@@ -49,11 +49,4 @@ class VilleManager{
 		$res = $requete->fetch(PDO::FETCH_ASSOC);
 		return $res['nombre'];
 	}
-
-	public function suprVill($vil_num){
-		$sql='delete from ville where vil_num='.$vil_num;
-		$requete = $this->db->prepare($sql);
-		$res=$requete->execute();
-		return $res;
-	}
 }
