@@ -67,7 +67,7 @@ if(!empty($_GET['per_num'])){
 	     	<h5>Voulez vous vraiment supprimer cette personne?</h5>
 	    </div>
 	    <div class="modal-footer">
-        	<button class="btn btn-primary" id="Valider">Valider</button>
+        	<button class="btn btn-primary" id="Valider"><span>Valider</span></button>
         	<button class="btn btn-danger" data-dismiss="modal" class="sr-only"><span>Annuler</span></button>
       </div>
     </div>
