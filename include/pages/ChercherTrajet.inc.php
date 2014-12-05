@@ -1,3 +1,9 @@
+<script>
+  	webshims.setOptions('waitReady', false);
+ 	webshims.setOptions('forms-ext', {types: 'date'});
+ 	webshims.polyfill('forms forms-ext');
+</script>
+
 <?php
 $pdo = new Mypdo();
 $proManager = new ProposeManager($pdo);
@@ -48,7 +54,19 @@ if(!empty($_SESSION['connexion'])){
 		 ?>
 		 		</select>
 			 	<div>
-			 		<label>Date de départ : &nbsp</label><input type="date" class="form-control" name="pro_date" value="<?php echo date("Y-m-d");  ?>">
+			 		<label>Date de départ : &nbsp</label>
+
+			 		<!-- cdn for modernizr, if you haven't included it already -->
+					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+					<!-- polyfiller file to detect and load polyfills -->
+					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+
+					<script>
+					  webshims.setOptions('waitReady', false);
+					  webshims.setOptions('forms-ext', {types: 'date'});
+					  webshims.polyfill('forms forms-ext');
+					</script>
+					<input type="date" class="form-control" name="pro_date" value="<?php echo date("Y-m-d");  ?>">
 			 		</div>
 			 	<div>
 			 		<label>Précision : &nbsp</label><select class="form-control" name="precision">

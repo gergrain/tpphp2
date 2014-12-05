@@ -47,12 +47,26 @@ $vilManager = new VilleManager($pdo);
 		 		</select>
 
 			 	<div class="spacer">
+			 		<!-- cdn for modernizr, if you haven't included it already -->
+					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+					<!-- polyfiller file to detect and load polyfills -->
+					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+					<script>
+					  webshims.setOptions('waitReady', false);
+					  webshims.setOptions('forms-ext', {types: 'time'});
+					  webshims.polyfill('forms forms-ext');
+					</script>
 			 		<label class="drt col-sm-6">Heure départ : </label>
 
 			 			<input class="form-control " type="time" name="pro_time" value="<?php echo gmdate("H:i",time() + 3600*(2+date("I")));  ?>">
 			 	</div>
 
 			 	<div class="spacer">
+			 		<script>
+					  webshims.setOptions('waitReady', false);
+					  webshims.setOptions('forms-ext', {types: 'date'});
+					  webshims.polyfill('forms forms-ext');
+					</script>
 			 		<label class="drt col-sm-6">Date de départ : </label>
 
 			 			<input class="form-control " type="date" name="pro_date" value="<?php echo date("Y-m-d");  ?>">
