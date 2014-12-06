@@ -2,9 +2,12 @@
 <?php
 if(empty($_POST['vil_nom'])){
 ?>
+<h1>Ajouter une ville</h1>
 <form method='post' action=# class="form-inline">
-		<h1><caption>Ajouter une ville</caption></h1>
-		<label class="form-label">Nom :  </label><input type='texte' class="form-control" name='vil_nom' required=required/>
+		
+		<label class="form-label">Nom : &nbsp; </label>
+		<input type='text' class="form-control" name='vil_nom' required="required" />
+		<br>
 		<input type='submit' class="btn btn-primary" />
 </form>
 <?php
@@ -16,13 +19,13 @@ if(empty($_POST['vil_nom'])){
 	if($retour !=0){
 ?>
 <div class="alert alert-success" role="alert">
-	<img src="image/valid.png"> La ville <b>"<?php echo $ville ?>" </b>a été ajoutée</img>
+	<img src="image/valid.png" alt="Ajouté" /> La ville <b>"<?php echo $ville ?>" </b>a été ajoutée
 </div>
 <?php
 	}else{
 ?>
 <div class="alert alert-danger" role="alert">
-	<img src="image/erreur.png"> La ville <?php echo $ville ?> n'a pas été ajoutée</img>
+	<img src="image/erreur.png" alt="Erreur d'ajout"/> La ville <?php echo $ville ?> n'a pas été ajoutée.
 </div>
 <?php
 	}

@@ -1,8 +1,8 @@
-<div >
+
 <?php
-echo "<section class=\"wrapper-lg\">";
-		echo "<div class=\"container\">";
-			echo "<div class=\"row\">";
+echo "<section class=\"wrapper-lg\">\n";
+		echo "<div class=\"container\">\n";
+			echo "<div class=\"row\">\n";
 if (!empty($_GET["page"])){
 	$page=$_GET["page"];}
 	else
@@ -91,8 +91,8 @@ case 13:
 	break;
 default : 	include_once('pages/accueil.inc.php');
 }
-			echo "</div>";
-		echo "</div>";
-	echo "</section>";	
+			echo "</div>\n";
+		echo "</div>\n";
+	echo "</section>\n";	
 ?>
 </div>

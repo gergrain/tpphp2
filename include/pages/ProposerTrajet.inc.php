@@ -6,15 +6,18 @@ $vilManager = new VilleManager($pdo);
 	if(empty($_POST['vil_num1'])&&empty($_POST['vil_num2'])&&empty($_POST['pro_date'])&&empty($_POST['pro_time'])){
 		$villes= $vilManager->getAllVilles();
 	?>
+	
 	<form method="post" action=# class="form-inline">
 			<div>
-				<label>Ville de départ : &nbsp&nbsp&nbsp</label><select class="form-control" name="vil_num1" > 
+				<label>Ville de départ : &nbsp;&nbsp;&nbsp;</label>
+				<select class="form-control" name="vil_num1" > 
 				<?php
 				foreach ($villes as $ville){  
 
 					echo "<option value=\"".$ville->getVilNum()."\">".$ville->getVilNom()."</option>\n";
 		 		}
 	 ?>
+	 			</select>
 				<input type="submit" class="btn btn-primary" name="valider" value="valider">
 			</div>
 	</form>
@@ -36,7 +39,7 @@ $vilManager = new VilleManager($pdo);
 					<label class="drt col-sm-6">Ville de d'arrivée : </label>
 
 						<select class="form-control " name="vil_num2" >
-				</div>
+				
 
 					<?php
 					foreach ($parcours as $parcour){  
@@ -44,38 +47,24 @@ $vilManager = new VilleManager($pdo);
 						echo "<option value=\"".$parcour['vil_num']."\">".$vilManager->getNomVilleByNum($parcour['vil_num'])."</option>\n";
 			 		}
 		 ?>
-		 		</select>
-
+		 				</select>
+				</div>
 			 	<div class="spacer">
-			 		<!-- cdn for modernizr, if you haven't included it already -->
-					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-					<!-- polyfiller file to detect and load polyfills -->
-					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-					<script>
-					  webshims.setOptions('waitReady', false);
-					  webshims.setOptions('forms-ext', {types: 'time'});
-					  webshims.polyfill('forms forms-ext');
-					</script>
 			 		<label class="drt col-sm-6">Heure départ : </label>
 
-			 			<input class="form-control " type="time" name="pro_time" value="<?php echo gmdate("H:i",time() + 3600*(2+date("I")));  ?>">
+			 			<input class="form-control " type="time" name="pro_time" min="<?php echo gmdate("H:i");  ?>" value="<?php echo gmdate("H:i",time() + 3600*(2+date("I")));  ?>">
 			 	</div>
 
 			 	<div class="spacer">
-			 		<script>
-					  webshims.setOptions('waitReady', false);
-					  webshims.setOptions('forms-ext', {types: 'date'});
-					  webshims.polyfill('forms forms-ext');
-					</script>
 			 		<label class="drt col-sm-6">Date de départ : </label>
 
-			 			<input class="form-control " type="date" name="pro_date" value="<?php echo date("Y-m-d");  ?>">
+			 			<input type="date" class="form-control" name="pro_date" min="<?php echo date("Y-m-d");  ?>" value="<?php echo date("Y-m-d");  ?>">
 			 	</div>
 
 			 	<div class="spacer départ">
 			 		<label class="drt col-sm-6">Nombre de places : </label>
 
-			 			<input class="form-control " type="text" name="pro_place" pattern="([0-9])">
+			 			<input class="form-control " type="text" name="pro_place" pattern="([0-9])" required="required">
 			 	</div>
 
 					<input type="submit" class="btn btn-primary col-sm-1 col-sm-push-8" name="valider" value="valider">
@@ -93,11 +82,11 @@ $vilManager = new VilleManager($pdo);
 			$retour = $proManager->add($propose);
 			if($retour){
 		?>
-			<br><img src="image/valid.png"> Votre proposition de trajet a été ajoutée</img>
+			<br><img src="image/valid.png" alt="Trajet ajouté"/> Votre proposition de trajet a été ajoutée
 		<?php
 			}else{
 		?>
-			<br><img src="image/erreur.png"> Votre proposition de trajet n'a pas été ajoutée</img>
+			<br><img src="image/erreur.png" alt="Erreur pas de trajet ajoutés"/> Votre proposition de trajet n'a pas été ajoutée
 		<?php
 			}
 

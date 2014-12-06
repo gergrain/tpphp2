@@ -39,7 +39,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 		<div class="col-sm-10 col-sm-push-1">
 			<div class="drt col-sm-5">
 				<label>Nom :</label>
-				<input type="text" equired="required" name="per_nom" class="form-control maj" required="required" />
+				<input type="text" name="per_nom" class="form-control maj" required="required" />
 			</div>
 			<div class="drt col-sm-5">
 				<label>Prenom :</label>
@@ -49,7 +49,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 		<div class="col-sm-10 col-sm-push-1 spacer">
 			<div class="col-sm-5 drt">
 				<label>Téléphone : </label>
-					<input type="tel" name="per_tel" pattern="(0[0-9]{9})" class="form-control" required="required" maxlength="10"/> 
+					<input type="tel" name="per_tel" pattern="(0[0-9]{9})" class="form-control" required="required" maxlength="10" /> 
 			</div>
 			<div class="col-sm-5 drt ">
 				<label>Mail : </label>
@@ -59,7 +59,7 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 		<div class="col-sm-10 col-sm-push-1 spacer">
 			<div class="col-sm-5 drt">
 				<label>Login : </label>
-					<input type="text" name="per_login" class="form-control" required="required"  /> 
+					<input type="text" name="per_login" class="form-control" required="required" /> 
 			</div>
 			<div class="col-sm-5 drt ">
 
@@ -145,12 +145,12 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
 	unset($_POST);
 		if($retour){
 	?>
-		<br><img src="image/valid.png"> La personne a été ajoutée</img>
+		<br><img src="image/valid.png" alt="ajouté"/> La personne a été ajoutée
 	<?php
 		header('Refresh: 4; URL=#');
 		}else{
 	?>
-		<br><img src="image/erreur.png"> Le personne n'a pas été ajoutée</img>
+		<br><img src="image/erreur.png" alt="Erreur d'ajout"/> Le personne n'a pas été ajoutée
 	<?php
 		}
 }

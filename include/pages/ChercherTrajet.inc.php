@@ -1,21 +1,16 @@
-<script>
-  	webshims.setOptions('waitReady', false);
- 	webshims.setOptions('forms-ext', {types: 'date'});
- 	webshims.polyfill('forms forms-ext');
-</script>
 
 <?php
 $pdo = new Mypdo();
 $proManager = new ProposeManager($pdo);
 $vilManager = new VilleManager($pdo);
 $parcManager = new ParcoursManager($pdo);
-if(!empty($_SESSION['connexion'])){
+
 	if(empty($_POST['vil_num1'])&&empty($_POST['vil_num2'])&&empty($_POST['pro_date'])&&empty($_POST['pro_time'])){
 		$proposes= $proManager->getAllVilles();
 	?>
 	<h1>Rechercher un trajet</h1>
-	<form method="post" action=# class="form-inline">
-			<label>Ville de départ : &nbsp</label><select class="form-control" name="vil_num1" > 
+	<form method="post" class="form-inline">
+			<label>Ville de départ : &nbsp;</label><select class="form-control" name="vil_num1" > 
 				<?php
 				foreach ($proposes as $propose){  
 
@@ -23,7 +18,6 @@ if(!empty($_SESSION['connexion'])){
 		 		}
 	 ?>			
 	 		</select>
-	 		<br>
 	 		<br>
 				<input type="submit" class="btn btn-primary" name="valider" value="valider">
 	</form>
@@ -38,53 +32,46 @@ if(!empty($_SESSION['connexion'])){
 		?>
 		<h1>Rechercher un trajet</h1>
 		<form method="post" action=# class="form-inline">
-					<div>
+					<div class="spacer">
 						<div>	
-							<label>Ville de départ : &nbsp</label><?php  echo $ville;  ?>
+							<label>Ville de départ : &nbsp;</label><i><?php  echo $ville;  ?></i>
 						</div>
 						<div>
-							<label>Ville de d'arrivée : &nbsp</label><select class="form-control" name="vil_num2" >
-						</div>
-					</div>
+							<label>Ville de d'arrivée : &nbsp;</label>
+							<select class="form-control" name="vil_num2" >
 					<?php
 					foreach ($parcours as $parcour){  
 
 						echo "<option value=\"".$parcour['vil_num']."\">".$vilManager->getNomVilleByNum($parcour['vil_num'])."</option>\n";
 			 		}
-		 ?>
+		 ?>				
 		 		</select>
-			 	<div>
-			 		<label>Date de départ : &nbsp</label>
-
-			 		<!-- cdn for modernizr, if you haven't included it already -->
-					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-					<!-- polyfiller file to detect and load polyfills -->
-					<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-
-					<script>
-					  webshims.setOptions('waitReady', false);
-					  webshims.setOptions('forms-ext', {types: 'date'});
-					  webshims.polyfill('forms forms-ext');
-					</script>
-					<input type="date" class="form-control" name="pro_date" value="<?php echo date("Y-m-d");  ?>">
-			 		</div>
-			 	<div>
-			 		<label>Précision : &nbsp</label><select class="form-control" name="precision">
-			 		<option value="0" >Ce jour</option>
-			 		<option value="1">+/- 1 jour</option>
-			 		<option value="2">+/- 2 jours</option>
-			 		<option value="3">+/- 3 jours</option>
-			 	</select>
+		 				</div>
+					</div>
+			 	<div class="spacer">
+			 		<label>Date de départ : &nbsp;</label>
+			 		<input type="date" class="form-control" name="pro_date" min="<?php echo date("Y-m-d");  ?>" value="<?php echo date("Y-m-d");  ?>">
 			 	</div>
-			 	<label>A partir de : &nbsp</label><SELECT multiple class="form-control" name="depart" >
-			 		<OPTION value=0 selected> 0 h </option>
-			 		<?php 
-					for ($i = 1; $i <= 23; $i++) {
-					    echo "<OPTION value=$i> $i h </option>";
-					}
-			 		?>
-				</SELECT>
-				<br>
+			 	<div class="spacer">
+			 		<label>Précision : &nbsp;</label>
+			 		<select class="form-control" name="precision">
+				 		<option value="0" >Ce jour</option>
+				 		<option value="1">+/- 1 jour</option>
+				 		<option value="2">+/- 2 jours</option>
+				 		<option value="3">+/- 3 jours</option>
+			 		</select>
+			 	</div>
+			 	<div class="spacer">
+				 	<label>A partir de : &nbsp;</label>
+				 	<SELECT multiple class="form-control" name="depart" >
+				 		<OPTION value=0 selected> 0 h </option>
+				 		<?php 
+						for ($i = 1; $i <= 23; $i++) {
+						    echo "<OPTION value=$i> $i h </option>\n";
+						}
+				 		?>
+					</SELECT>
+				</div>
 				<br>
 					<input type="submit" class="btn btn-primary" name="valider" value="valider">
 		</form>
@@ -131,16 +118,15 @@ if(!empty($_SESSION['connexion'])){
 			}else{
 		?>
 			<div class="alert alert-danger" role="alert">
-				<img src="image/erreur.png">Désolé pas de trajet disponible</img>
+				<img src="image/erreur.png" alt="Pas de trajet disponible"/>Désolé pas de trajet disponible
 			</div>
 		<?php
+				header('Refresh: 3; URL=index.php?page=10');
 			}
-
+			
 		?>
 		<?php
 		}
 	}
-}else{
-	echo 'Vous devez être connecté pour rechercher un trajet';
-}
+
 ?>

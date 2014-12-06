@@ -6,7 +6,7 @@ if(empty($_POST['vil_num1']) && empty($_POST['vil_num2']) && empty($_POST['par_k
 	$villes= $vilManager->getAllVilles();
 ?>
 <h1>Ajouter un Parcours </h1>
-<form method="post" class="form-inline" action=#>
+<form method="post" class="form-inline" >
 		<label>Départ :&nbsp;</label><select class="form-control" name="vil_num1" > 
 			<?php
 			foreach ($villes as $ville){  

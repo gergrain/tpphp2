@@ -32,5 +32,6 @@ class FonctionManager{
 
 		return $res['fon_libelle'];
 	}
+	
 }
 ?>

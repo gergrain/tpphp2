@@ -54,6 +54,13 @@ class PersonneManager{
 	
 		return $this->db->lastInsertId('per_num');
 	}
+	public function getNumPersonne($nom,$prenom,$login,$per_mail,$per_tel){
+		$sql='select per_num from personne where per_tel=\''.$per_tel.'\' and per_mail=\''.$per_mail.'\'';
+		$requete = $this->db->prepare($sql);
+		$requete->execute();
+		$res = $requete->fetch(PDO::FETCH_ASSOC);
+		return $res['per_num'];
+	}
 	public function suprPersonne($per_num){
 		$sql='delete from propose where per_num='.$per_num.';'.
 		'delete from salarie where per_num='.$per_num.';'.
@@ -63,5 +70,20 @@ class PersonneManager{
 		$res=$requete->execute();
 		return $res;
 	}
-
+	public function modifierPersonneSaufMdp($personne,$per_num){
+		$sql="update personne set per_nom=\"".$personne->getPerNom()."\" where per_num=$per_num;
+		update personne set per_prenom=\"".$personne->getPerPrenom()."\" where per_num=$per_num;
+		update personne set per_mail=\"".$personne->getPerMail()."\" per_num=$per_num;
+		update personne set per_tel=\"".$personne->getPerTel()."\" per_num=$per_num;
+		update personne set per_login=\"".$personne->getPerLogin()."\" per_num=$per_num";
+		$requete = $this->db->prepare($sql);
+		$res=$requete->execute();
+		return $res;
+	}
+	public function modifierMdpPersonne($mdp,$per_num){
+		$sql="update personne set per_pwd=\"".$mdp."\" where per_num=$per_num";
+		$requete = $this->db->prepare($sql);
+		$res=$requete->execute();
+		return $res;
+	}
 }

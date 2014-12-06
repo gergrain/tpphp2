@@ -31,4 +31,12 @@ class EtudiantManager{
 
 		return $res;
 	}
+	public function supprimerEtubyid($per_num){
+		$sql='delete from etudiant where per_num='.$per_num;
+		$requete = $this->db->prepare($sql);
+		
+		$res = $requete->execute();
+		return $res;
+	}
+
 }

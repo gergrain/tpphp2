@@ -46,7 +46,7 @@ if(!empty($_GET['per_num'])){
 			<td><?php echo $personne -> getPerNum(); ?></td>
 			<td><?php echo $personne->getPerNom(); ?></td>
 			<td><?php echo $personne->getPerPrenom(); ?></td>
-			<td><a href="index.php?page=3&amp;per_num=<?php echo $personne -> getPerNum(); ?>"><img src="image/modifier.png"/></a></td>
+			<td><a href="index.php?page=3&amp;per_num=<?php echo $personne -> getPerNum(); ?>"><img src="image/modifier.png" alt="Supprimer"/></a></td>
 			<td class="btnValider"><a href=#  data-toggle="modal" data-target=".supprimer">
 					<span class="glyphicon glyphicon-trash"></span>
 				</a>
@@ -56,7 +56,7 @@ if(!empty($_GET['per_num'])){
 	</tbody>
 </table>
 
-<div class="modal fade supprimer" id="myModal"tabindex="-1" role="dialog" area-hiden="true" data-backdrop="false">
+<div class="modal fade supprimer" id="myModal" tabindex="-1" role="dialog"  data-backdrop="false">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
     	<div class="modal-header">
@@ -67,8 +67,8 @@ if(!empty($_GET['per_num'])){
 	     	<h5>Voulez vous vraiment supprimer cette personne?</h5>
 	    </div>
 	    <div class="modal-footer">
-        	<button class="btn btn-primary" id="Valider"><span>Valider</span></button>
-        	<button class="btn btn-danger" data-dismiss="modal" class="sr-only"><span>Annuler</span></button>
+        	<button class="btn btn-primary" id="Valider">Valider</button>
+        	<button class="btn btn-danger" data-dismiss="modal" ><span>Annuler</span></button>
       </div>
     </div>
   </div>

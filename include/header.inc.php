@@ -1,11 +1,12 @@
 <?php session_start(); ?>
-<!DOCTYPE html >
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
 <head>
 <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/polyfiller.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <?php
 		$title = "Bienvenue sur le site de covoiturage de l'IUT.";?>
@@ -16,6 +17,11 @@
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 
 <link rel="stylesheet" type="text/css"  href="bootstrap/css/font-awesome.min.css"/>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
 
 </head>
 <body>
